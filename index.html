@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+        <span id=do-unsupported class="api-support hidden">deviceorientation event is supported</span> 
+        <div id=do-info class=hidden> <p> Coordinates: (<span id=beta class=value>null</span>, <span id=gamma class=value>null</span>, <span id=alpha class=value>null</span>) <br> Position absolute? <span id=is-absolute class=value>unavailable</span> </p> </div>
     <!-- Camera -->
-    <main id="camera">
+        <main id="camera">
         <!-- Camera sensor -->
         <canvas id="camera--sensor"></canvas>
         <!-- Camera view -->
