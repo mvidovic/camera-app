@@ -9,8 +9,37 @@ const cameraView = document.querySelector("#camera--view"),
 
     
 
+    
+    window.addEventListener("deviceorientation", onDeviceOrientationChange, false);
+    function usefulOrientation(alpha, beta, gamma){
+        alpha -= window.orientation;
+        while(alpha < 0) alpha += 360;
+        while(alpha > 360) alpha -= 360;
+        if(window.orientation === 180){
+            return {alpha: alpha,
+                beta: -beta,
+                gamma: -gamma};
+        }else if(window.orientation === 90){
+            return {alpha: alpha,
+                beta: -gamma,
+                gamma: beta};
+        }else if(window.orientation === -90){
+            return {alpha: alpha,
+                beta: gamma,
+                gamma: -beta};
+        }else{
+            return {alpha: alpha,
+                beta: beta,
+                gamma: gamma};
+        }
+    }
 
     
+    function onDeviceOrientationChange(e){
+        console.log("deviceOrientation", e.alpha, e.beta, e.gamma);
+        var orientation = usefulOrientation(e.alpha, e.beta, e.gamma);
+        console.log("usefulOrientatino", orientation.alpha, orientation.beta, orientation.gamma);
+    }
       
 // Access the device camera and stream to cameraView
 function cameraStart() {
