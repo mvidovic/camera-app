@@ -17,7 +17,6 @@ const cameraView = document.querySelector("#camera--view"),
         document.getElementById('beta').innerHTML = Math.round(event.beta);
         document.getElementById('gamma').innerHTML = Math.round(event.gamma);
         document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-        document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
      });
   }
 
