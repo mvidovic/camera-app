@@ -12,7 +12,13 @@ const cameraView = document.querySelector("#camera--view"),
      }else {document.getElementById('do-info').classList.remove('hidden');
 
      window.addEventListener('deviceorientation', function(event) {
-        document.getElementById('camera').innerHTML = function cameraStart() {
+        document.getElementById('beta').innerHTML = Math.round(event.beta);
+        document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+        document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+     });
+  }
+
+        function cameraStart() {
             navigator.mediaDevices
                 .getUserMedia(constraints)
                 .then(function(stream) {
@@ -33,13 +39,6 @@ const cameraView = document.querySelector("#camera--view"),
         };
         // Start the video stream when the window loads
         window.addEventListener("load", cameraStart, false);
-        document.getElementById('beta').innerHTML = Math.round(event.beta);
-        document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-        document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-     });
-  }
-
-        
 
      
 
