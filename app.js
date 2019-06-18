@@ -9,7 +9,22 @@ const cameraView = document.querySelector("#camera--view"),
 
     if (!('ondeviceorientation' in window)) {
         document.getElementById('do-unsupported').classList.remove('hidden');
-     }else {
+     }else {document.getElementById('do-info').classList.remove('hidden');
+
+     window.addEventListener('deviceorientation', function(event) {
+        document.getElementById('cube').style.webkitTransform =
+        document.getElementById('cube').style.transform =
+                'rotateX(' + event.beta + 'deg) ' +
+                'rotateY(' + event.gamma + 'deg) ' +
+                'rotateZ(' + event.alpha + 'deg)';
+
+        document.getElementById('beta').innerHTML = Math.round(event.beta);
+        document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+        document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+        document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
+     });
+  }
+
         function cameraStart() {
             navigator.mediaDevices
                 .getUserMedia(constraints)
@@ -32,9 +47,8 @@ const cameraView = document.querySelector("#camera--view"),
         // Start the video stream when the window loads
         window.addEventListener("load", cameraStart, false);
 
-     }
+     
 
 
       
 // Access the device camera and stream to cameraView
-
