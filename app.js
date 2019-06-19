@@ -17,10 +17,7 @@ const cameraView = document.querySelector("#camera--view"),
             console.log("test", y);
             
         }, true);
-     } else {
-        document.getElementById('note').classList.remove('hidden');
      }
-
     
 
     
