@@ -5,6 +5,9 @@ const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
+    if (!('ondeviceorientation' in window)) {
+        document.getElementById('do-unsupported').classList.remove('hidden');
+     } 
 
     window.addEventListener("deviceorientation", function(e) {
         var z = e.alpha;
@@ -14,12 +17,7 @@ const cameraView = document.querySelector("#camera--view"),
         document.getElementById('gamma').innerHTML = Math.round(x);
         document.getElementById('alpha').innerHTML = Math.round(z);
         console.log("test", y);
-       if( y >= 85) {
-            
-            document.getElementById('test').classList.remove('hidden');
-        } else {
-            document.getElementById('test2').classList.remove('hidden');
-        }
+        
     }, true);
 
     
