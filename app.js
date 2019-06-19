@@ -40,7 +40,6 @@ const cameraView = document.querySelector("#camera--view"),
             }
     }
     
-      window.addEventListener("deviceorientation", handleOrientation, true);
 
     
         function cameraStart() {
