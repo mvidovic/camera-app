@@ -11,13 +11,10 @@ const cameraView = document.querySelector("#camera--view"),
         document.getElementById('do-unsupported').classList.remove('hidden');
         document.getElementById('do-info').classList.remove('hidden');
         window.addEventListener('deviceorientation', function(event) {
-            if(event.beta === 90){
-                
-            }
-            document.getElementById('beta').innerHTML = Math.round(event.acceleration.y);
-            this.console.log('beta', event.acceleration.y)
-            document.getElementById('gamma').innerHTML = Math.round(event.acceleration.z);
-            document.getElementById('alpha').innerHTML = Math.round(event.acceleration.x);
+            document.getElementById('beta').innerHTML = Math.round(event.beta);
+            this.console.log('beta', event.beta)
+            document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+            document.getElementById('alpha').innerHTML = Math.round(event.alpha);
             document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
 
         });
