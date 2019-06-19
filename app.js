@@ -18,7 +18,7 @@ const cameraView = document.querySelector("#camera--view"),
             
             document.getElementById('test').classList.remove('hidden');
         } else {
-            document.getElementById('test2').classList.add('hidden');
+            document.getElementById('test2').classList.remove('hidden');
         }
     }, true);
 
