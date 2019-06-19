@@ -5,7 +5,7 @@ const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
-    if (!('ondeviceorientation' in window)) {
+    if (DeviceOrientationEvent.window) {
         document.getElementById('do-unsupported').classList.remove('hidden');
      } 
 
