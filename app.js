@@ -6,20 +6,40 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
 
-    if (window.DeviceOrientationEvent) {
-        console.log("DeviceOrientation is supported");
-        document.getElementById('do-unsupported').classList.remove('hidden');
-        document.getElementById('do-info').classList.remove('hidden');
-        window.addEventListener('deviceorientation', function(event) {
-            document.getElementById('beta').innerHTML = Math.round(event.beta);
-            this.console.log('beta', event.beta)
-            document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-            document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-            document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
+    if (window.DeviceMotionEvent) {
+        window.addEventListener('devicemotion', deviceMotionHandler, false);
+      } else {
+        document.getElementById("dmEvent").innerHTML = "Not supported."
+      }
 
-        });
-     }
-
+      function deviceMotionHandler(eventData) {
+        var info, xyz = "[X, Y, Z]";
+      
+        // Grab the acceleration from the results
+        var acceleration = eventData.acceleration;
+        info = xyz.replace("X", acceleration.x);
+        info = info.replace("Y", acceleration.y);
+        info = info.replace("Z", acceleration.z);
+        document.getElementById("moAccel").innerHTML = info;
+      
+        // Grab the acceleration including gravity from the results
+        acceleration = eventData.accelerationIncludingGravity;
+        info = xyz.replace("X", acceleration.x);
+        info = info.replace("Y", acceleration.y);
+        info = info.replace("Z", acceleration.z);
+        document.getElementById("moAccelGrav").innerHTML = info;
+      
+        // Grab the rotation rate from the results
+        var rotation = eventData.rotationRate;
+        info = xyz.replace("X", rotation.alpha);
+        info = info.replace("Y", rotation.beta);
+        info = info.replace("Z", rotation.gamma);
+        document.getElementById("moRotation").innerHTML = info;
+      
+        // // Grab the refresh interval from the results
+        info = eventData.interval;
+        document.getElementById("moInterval").innerHTML = info;       
+      }
         function cameraStart() {
             navigator.mediaDevices
                 .getUserMedia(constraints)
