@@ -10,11 +10,20 @@ const cameraView = document.querySelector("#camera--view"),
         console.log("DeviceOrientation is supported");
         document.getElementById('do-unsupported').classList.remove('hidden');
         document.getElementById('do-info').classList.remove('hidden');
-        window.addEventListener('devicemotion', function(event) {
-            document.getElementById('beta').innerHTML = Math.round(event.acceleration.y);
-            this.console.log('beta', event.acceleration.y)
-            document.getElementById('gamma').innerHTML = Math.round(event.acceleration.z);
-            document.getElementById('alpha').innerHTML = Math.round(event.acceleration.x);
+       window.addEventListener('deviceorientation', function(event) {
+            if(event.beta === 90){
+                cameraTrigger.onclick = function() {
+                    cameraSensor.width = cameraView.videoWidth;
+                    cameraSensor.height = cameraView.videoHeight;
+                    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+                    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+                    cameraOutput.classList.add("taken");
+                };
+            }
+            document.getElementById('beta').innerHTML = Math.round(event.beta);
+            this.console.log('beta', event.beta)
+            document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+            document.getElementById('alpha').innerHTML = Math.round(event.alpha);
             document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
 
         });
@@ -32,13 +41,7 @@ const cameraView = document.querySelector("#camera--view"),
             });
         }
         // Take a picture when cameraTrigger is tapped
-        cameraTrigger.onclick = function() {
-            cameraSensor.width = cameraView.videoWidth;
-            cameraSensor.height = cameraView.videoHeight;
-            cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-            cameraOutput.src = cameraSensor.toDataURL("image/webp");
-            cameraOutput.classList.add("taken");
-        };
+       
         // Start the video stream when the window loads
         window.addEventListener("load", cameraStart, false);
 
