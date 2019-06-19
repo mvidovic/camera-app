@@ -6,40 +6,27 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
 
-    if (window.DeviceMotionEvent) {
-        window.addEventListener('devicemotion', deviceMotionHandler, true);
-      } else {
-        document.getElementById("dmEvent").innerHTML = "Not supported."
-      }
+    if (!('ondeviceorientation' in window)) {
+        document.getElementById('do-unsupported').classList.remove('hidden');
+     } else {
+        document.getElementById('do-info').classList.remove('hidden');
+        window.addEventListener('deviceorientation', function(event) {
+           document.getElementById('beta').innerHTML = Math.round(event.beta);
+           document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+           document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+           document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
+           if(event.beta < 93 && event.beta > 85) {
+                cameraTrigger.onclick = function() {
+                    cameraSensor.width = cameraView.videoWidth;
+                    cameraSensor.height = cameraView.videoHeight;
+                    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+                    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+                    cameraOutput.classList.add("taken");
+                };
+           }
+        });
+     }
 
-      function deviceMotionHandler(eventData) {
-        var info, xyz = "[X, Y, Z]";
-      
-        // Grab the acceleration from the results
-        var acceleration = eventData.acceleration;
-        info = xyz.replace("X", acceleration.x);
-        info = info.replace("Y", acceleration.y);
-        info = info.replace("Z", acceleration.z);
-        document.getElementById("moAccel").innerHTML = info;
-      
-        // Grab the acceleration including gravity from the results
-        acceleration = eventData.accelerationIncludingGravity;
-        info = xyz.replace("X", acceleration.x);
-        info = info.replace("Y", acceleration.y);
-        info = info.replace("Z", acceleration.z);
-        document.getElementById("moAccelGrav").innerHTML = info;
-      
-        // Grab the rotation rate from the results
-        var rotation = eventData.rotationRate;
-        info = xyz.replace("X", rotation.alpha);
-        info = info.replace("Y", rotation.beta);
-        info = info.replace("Z", rotation.gamma);
-        document.getElementById("moRotation").innerHTML = info;
-      
-        // // Grab the refresh interval from the results
-        info = eventData.interval;
-        document.getElementById("moInterval").innerHTML = info;       
-      }
         function cameraStart() {
             navigator.mediaDevices
                 .getUserMedia(constraints)
@@ -52,13 +39,7 @@ const cameraView = document.querySelector("#camera--view"),
             });
         }
         // Take a picture when cameraTrigger is tapped
-        cameraTrigger.onclick = function() {
-            cameraSensor.width = cameraView.videoWidth;
-            cameraSensor.height = cameraView.videoHeight;
-            cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-            cameraOutput.src = cameraSensor.toDataURL("image/webp");
-            cameraOutput.classList.add("taken");
-        };
+        
         // Start the video stream when the window loads
         window.addEventListener("load", cameraStart, false);
 
