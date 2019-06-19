@@ -7,12 +7,12 @@ const cameraView = document.querySelector("#camera--view"),
     cameraTrigger = document.querySelector("#camera--trigger")
 
     window.addEventListener("deviceorientation", function(e) {
-        var z = e.alpha;
-        var y = e.beta;
-        var x = e.gamma;
-       document.getElementById('beta').innerHTML = Math.round(e.beta);
-        document.getElementById('gamma').innerHTML = Math.round(e.gamma);
-        document.getElementById('alpha').innerHTML = Math.round(e.alpha);
+        var z = Math.round(e.alpha);
+        var y = Math.round(e.beta);
+        var x = Math.round(e.gamma);
+       document.getElementById('beta').innerHTML = y;
+        document.getElementById('gamma').innerHTML = x;
+        document.getElementById('alpha').innerHTML = z;
     }, true);
 
      
