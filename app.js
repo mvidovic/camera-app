@@ -6,29 +6,16 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
 
-    if (!('ondeviceorientation' in window)) {
-        document.getElementById('do-unsupported').classList.remove('hidden');
-     } else {
-        document.getElementById('do-info').classList.remove('hidden');
-        window.addEventListener('deviceorientation', function(event) {
-           document.getElementById('beta').innerHTML = Math.round(event.beta);
-           document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-           document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-           document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
-           if(event.beta < 93 && event.beta > 85) {
-                cameraTrigger.onclick = function() {
-                    cameraSensor.width = cameraView.videoWidth;
-                    cameraSensor.height = cameraView.videoHeight;
-                    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-                    cameraOutput.src = cameraSensor.toDataURL("image/webp");
-                    cameraOutput.classList.add("taken");
-                };
-           } else {
-            document.getElementById('note').classList.remove('hidden');
-           }
-        }, true);
-     }
+    window.addEventListener("deviceorientation", function(e) {
+        var z = e.alpha;
+        var y = e.beta;
+        var x = e.gamma;
+        document.getElementById('beta').innerHTML = Math.round(y);
+        document.getElementById('gamma').innerHTML = Math.round(x);
+        document.getElementById('alpha').innerHTML = Math.round(z);
+    }, true);
 
+     
         function cameraStart() {
             navigator.mediaDevices
                 .getUserMedia(constraints)
@@ -41,7 +28,13 @@ const cameraView = document.querySelector("#camera--view"),
             });
         }
         // Take a picture when cameraTrigger is tapped
-        
+        cameraTrigger.onclick = function() {
+            cameraSensor.width = cameraView.videoWidth;
+            cameraSensor.height = cameraView.videoHeight;
+            cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+            cameraOutput.src = cameraSensor.toDataURL("image/webp");
+            cameraOutput.classList.add("taken");
+        };
         // Start the video stream when the window loads
         window.addEventListener("load", cameraStart, false);
 
