@@ -6,7 +6,21 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
 
-function cameraStart() {
+    window.addEventListener("deviceorientation", function(e) {
+        var z = e.alpha;
+        var y = e.beta;
+        var x = e.gamma;
+        document.getElementById('beta').innerHTML = Math.round(y);
+        document.getElementById('gamma').innerHTML = Math.round(x);
+        document.getElementById('alpha').innerHTML = Math.round(z);
+    }, true);
+
+    if( y >= 85 && y <= 95) {
+        document.getElementById('test').classList.remove('hidden');
+    } else {
+        document.getElementById('test2').classList.remove('hidden');
+    }
+        function cameraStart() {
             navigator.mediaDevices
                 .getUserMedia(constraints)
                 .then(function(stream) {
@@ -17,17 +31,8 @@ function cameraStart() {
                 console.error("Oops. Something is broken.", error);
             });
         }
-
-    window.addEventListener("deviceorientation", function(e) {
-        var z = Math.round(e.alpha);
-        var y = Math.round(e.beta);
-        var x = Math.round(e.gamma);
-       document.getElementById('beta').innerHTML = y;
-        document.getElementById('gamma').innerHTML = x;
-        document.getElementById('alpha').innerHTML = z;
-        
-        if( y >= 85 && y <= 95) {
-            cameraTrigger.onclick = function() {
+        // Take a picture when cameraTrigger is tapped
+        cameraTrigger.onclick = function() {
             cameraSensor.width = cameraView.videoWidth;
             cameraSensor.height = cameraView.videoHeight;
             cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
@@ -35,13 +40,7 @@ function cameraStart() {
             cameraOutput.classList.add("taken");
         };
         // Start the video stream when the window loads
-        window.addEventListener("load", cameraStart, false);}
-    }, true);
-
-     
-        
-        // Take a picture when cameraTrigger is tapped
-        
+        window.addEventListener("load", cameraStart, false);
 
      
 
