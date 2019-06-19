@@ -7,7 +7,7 @@ const cameraView = document.querySelector("#camera--view"),
     cameraTrigger = document.querySelector("#camera--trigger")
 
     if (window.DeviceMotionEvent) {
-        window.addEventListener('devicemotion', deviceMotionHandler, false);
+        window.addEventListener('devicemotion', deviceMotionHandler, true);
       } else {
         document.getElementById("dmEvent").innerHTML = "Not supported."
       }
