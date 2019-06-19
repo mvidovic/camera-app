@@ -6,6 +6,7 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
     
+       
         window.addEventListener("deviceorientation", function(e) {
             var z = e.alpha;
             var y = e.beta;
@@ -14,9 +15,24 @@ const cameraView = document.querySelector("#camera--view"),
             document.getElementById('gamma').innerHTML = Math.round(x);
             document.getElementById('alpha').innerHTML = Math.round(z);
             console.log("test", y);
+
+            if ( y < 92 && y > 87) {
+                console.log('uspela si')
+                cameraTrigger.onclick = function() {
+                    cameraSensor.width = cameraView.videoWidth;
+                    cameraSensor.height = cameraView.videoHeight;
+                    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+                    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+                    cameraOutput.classList.add("taken");
+                };
+                
+              } else {
+               console.log('nisi')
+              }
             
         }, true);
      
+
     
 
     
@@ -32,13 +48,7 @@ const cameraView = document.querySelector("#camera--view"),
             });
         }
         // Take a picture when cameraTrigger is tapped
-        cameraTrigger.onclick = function() {
-            cameraSensor.width = cameraView.videoWidth;
-            cameraSensor.height = cameraView.videoHeight;
-            cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-            cameraOutput.src = cameraSensor.toDataURL("image/webp");
-            cameraOutput.classList.add("taken");
-        };
+        
         // Start the video stream when the window loads
         window.addEventListener("load", cameraStart, false);
 
