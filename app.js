@@ -14,7 +14,7 @@ const cameraView = document.querySelector("#camera--view"),
         document.getElementById('gamma').innerHTML = Math.round(x);
         document.getElementById('alpha').innerHTML = Math.round(z);
        if( y >= 85) {
-            this.console.log("test", y);
+            console.log("test", y);
             document.getElementById('test').classList.remove('hidden');
         } else {
             document.getElementById('test2').classList.add('hidden');
