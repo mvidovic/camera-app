@@ -6,7 +6,6 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
     
-        document.getElementById('do-unsupported').classList.remove('hidden');
         window.addEventListener("deviceorientation", function(e) {
             var z = e.alpha;
             var y = e.beta;
