@@ -6,30 +6,41 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
     
-    window.addEventListener("deviceorientation", handleOrientation, true);
+    var Accelerometer = function() {
+        var self = this;
+        self.supported = false;
+        var absolute = null,
+            alpha = null,
+            beta = null,
+            gamma = null;
 
-    function handleOrientation(event) {
-        var absolute = event.absolute;
-        var alpha    = event.alpha;
-        var beta     = event.beta;
-        var gamma    = event.gamma;
-      
-        document.getElementById('beta').innerHTML = Math.round(beta);
-        document.getElementById('gamma').innerHTML = Math.round(gamma);
-        document.getElementById('alpha').innerHTML = Math.round(alpha);
-        // Do stuff with the new orientation data
-
-        if ( beta > 85) {
-            cameraTrigger.onclick = function() {
-                cameraSensor.width = cameraView.videoWidth;
-                cameraSensor.height = cameraView.videoHeight;
-                cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-                cameraOutput.src = cameraSensor.toDataURL("image/webp");
-                cameraOutput.classList.add("taken");
+            self.getAlpha = function() {
+                return (alpha !== null) ? alpha : 0;
+              };
+              self.getBeta = function() {
+                return (beta !== null) ? beta : 0;
+              };
+              self.getGamma = function() {
+                return (gamma !== null) ? gamma : 0;
             };
-        }
-      }
+
+            if (!!window.DeviceOrientationEvent) {
+                window.addEventListener("deviceorientation", handleOrientation, true);
+                self.supported = true;
+            }
+
+            function handleOrientation(event) {
+                absolute = Math.round(event.absolute);
+                alpha = Math.round(event.alpha);
+                beta = Math.round(event.beta);
+                gamma = Math.round(event.gamma);
+                document.getElementById('beta').innerHTML = Math.round(event.beta);
+               document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+               document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+            }
+    }
     
+      window.addEventListener("deviceorientation", handleOrientation, true);
 
     
         function cameraStart() {
@@ -44,7 +55,13 @@ const cameraView = document.querySelector("#camera--view"),
             });
         }
         // Take a picture when cameraTrigger is tapped
-       
+        cameraTrigger.onclick = function() {
+            cameraSensor.width = cameraView.videoWidth;
+            cameraSensor.height = cameraView.videoHeight;
+            cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+            cameraOutput.src = cameraSensor.toDataURL("image/webp");
+            cameraOutput.classList.add("taken");
+        };
         // Start the video stream when the window loads
         window.addEventListener("load", cameraStart, false);
 
