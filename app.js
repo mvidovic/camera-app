@@ -6,17 +6,7 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
 
-    window.addEventListener("deviceorientation", function(e) {
-        var z = Math.round(e.alpha);
-        var y = Math.round(e.beta);
-        var x = Math.round(e.gamma);
-       document.getElementById('beta').innerHTML = y;
-        document.getElementById('gamma').innerHTML = x;
-        document.getElementById('alpha').innerHTML = z;
-    }, true);
-
-     
-        function cameraStart() {
+function cameraStart() {
             navigator.mediaDevices
                 .getUserMedia(constraints)
                 .then(function(stream) {
@@ -27,8 +17,17 @@ const cameraView = document.querySelector("#camera--view"),
                 console.error("Oops. Something is broken.", error);
             });
         }
-        // Take a picture when cameraTrigger is tapped
-        cameraTrigger.onclick = function() {
+
+    window.addEventListener("deviceorientation", function(e) {
+        var z = Math.round(e.alpha);
+        var y = Math.round(e.beta);
+        var x = Math.round(e.gamma);
+       document.getElementById('beta').innerHTML = y;
+        document.getElementById('gamma').innerHTML = x;
+        document.getElementById('alpha').innerHTML = z;
+        
+        if( y >= 85 && y <= 95) {
+            cameraTrigger.onclick = function() {
             cameraSensor.width = cameraView.videoWidth;
             cameraSensor.height = cameraView.videoHeight;
             cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
@@ -36,7 +35,13 @@ const cameraView = document.querySelector("#camera--view"),
             cameraOutput.classList.add("taken");
         };
         // Start the video stream when the window loads
-        window.addEventListener("load", cameraStart, false);
+        window.addEventListener("load", cameraStart, false);}
+    }, true);
+
+     
+        
+        // Take a picture when cameraTrigger is tapped
+        
 
      
 
