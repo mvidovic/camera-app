@@ -23,6 +23,8 @@ const cameraView = document.querySelector("#camera--view"),
                     cameraOutput.src = cameraSensor.toDataURL("image/webp");
                     cameraOutput.classList.add("taken");
                 };
+           } else {
+            document.getElementById('note').classList.remove('hidden');
            }
         }, true);
      }
