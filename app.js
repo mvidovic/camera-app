@@ -6,6 +6,28 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
 
+function cameraStart() {
+            navigator.mediaDevices
+                .getUserMedia(constraints)
+                .then(function(stream) {
+                track = stream.getTracks()[0];
+                cameraView.srcObject = stream;
+            })
+            .catch(function(error) {
+                console.error("Oops. Something is broken.", error);
+            });
+        }
+        // Take a picture when cameraTrigger is tapped
+       
+        // Start the video stream when the window loads
+        window.addEventListener("load", cameraStart, false);
+
+     
+
+
+      
+// Access the device camera and stream to cameraView
+
     if (window.DeviceOrientationEvent) {
         console.log("DeviceOrientation is supported");
         document.getElementById('do-unsupported').classList.remove('hidden');
@@ -29,24 +51,4 @@ const cameraView = document.querySelector("#camera--view"),
         });
      }
 
-        function cameraStart() {
-            navigator.mediaDevices
-                .getUserMedia(constraints)
-                .then(function(stream) {
-                track = stream.getTracks()[0];
-                cameraView.srcObject = stream;
-            })
-            .catch(function(error) {
-                console.error("Oops. Something is broken.", error);
-            });
-        }
-        // Take a picture when cameraTrigger is tapped
-       
-        // Start the video stream when the window loads
-        window.addEventListener("load", cameraStart, false);
-
-     
-
-
-      
-// Access the device camera and stream to cameraView
+        
