@@ -7,18 +7,21 @@ const cameraView = document.querySelector("#camera--view"),
     cameraTrigger = document.querySelector("#camera--trigger")
     if (DeviceOrientationEvent.window) {
         document.getElementById('do-unsupported').classList.remove('hidden');
-     } 
+        window.addEventListener("deviceorientation", function(e) {
+            var z = e.alpha;
+            var y = e.beta;
+            var x = e.gamma;
+            document.getElementById('beta').innerHTML = Math.round(y);
+            document.getElementById('gamma').innerHTML = Math.round(x);
+            document.getElementById('alpha').innerHTML = Math.round(z);
+            console.log("test", y);
+            
+        }, true);
+     } else {
+        document.getElementById('note').classList.remove('hidden');
+     }
 
-    window.addEventListener("deviceorientation", function(e) {
-        var z = e.alpha;
-        var y = e.beta;
-        var x = e.gamma;
-        document.getElementById('beta').innerHTML = Math.round(y);
-        document.getElementById('gamma').innerHTML = Math.round(x);
-        document.getElementById('alpha').innerHTML = Math.round(z);
-        console.log("test", y);
-        
-    }, true);
+    
 
     
         function cameraStart() {
