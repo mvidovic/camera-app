@@ -10,9 +10,9 @@ const cameraView = document.querySelector("#camera--view"),
         var z = e.alpha;
         var y = e.beta;
         var x = e.gamma;
-        document.getElementById('beta').innerHTML = Math.round(y);
-        document.getElementById('gamma').innerHTML = Math.round(x);
-        document.getElementById('alpha').innerHTML = Math.round(z);
+       document.getElementById('beta').innerHTML = y;
+        document.getElementById('gamma').innerHTML = x;
+        document.getElementById('alpha').innerHTML = z;
     }, true);
 
      
