@@ -5,7 +5,7 @@ const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
-    if (DeviceOrientationEvent.window) {
+    
         document.getElementById('do-unsupported').classList.remove('hidden');
         window.addEventListener("deviceorientation", function(e) {
             var z = e.alpha;
@@ -17,7 +17,7 @@ const cameraView = document.querySelector("#camera--view"),
             console.log("test", y);
             
         }, true);
-     }
+     
     
 
     
