@@ -24,7 +24,7 @@ const cameraView = document.querySelector("#camera--view"),
                     cameraOutput.classList.add("taken");
                 };
            }
-        });
+        }, true);
      }
 
         function cameraStart() {
