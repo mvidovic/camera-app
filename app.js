@@ -5,40 +5,22 @@ const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
-    
-    var Accelerometer = function() {
-        var self = this;
-        self.supported = false;
-        var absolute = null,
-            alpha = null,
-            beta = null,
-            gamma = null;
+    if (DeviceOrientationEvent.window) {
+        document.getElementById('do-unsupported').classList.remove('hidden');
+        window.addEventListener("deviceorientation", function(e) {
+            var z = e.alpha;
+            var y = e.beta;
+            var x = e.gamma;
+            document.getElementById('beta').innerHTML = Math.round(y);
+            document.getElementById('gamma').innerHTML = Math.round(x);
+            document.getElementById('alpha').innerHTML = Math.round(z);
+            console.log("test", y);
+            
+        }, true);
+     } else {
+        document.getElementById('note').classList.remove('hidden');
+     }
 
-            self.getAlpha = function() {
-                return (alpha !== null) ? alpha : 0;
-              };
-              self.getBeta = function() {
-                return (beta !== null) ? beta : 0;
-              };
-              self.getGamma = function() {
-                return (gamma !== null) ? gamma : 0;
-            };
-
-            if (!!window.DeviceOrientationEvent) {
-                window.addEventListener("deviceorientation", handleOrientation, true);
-                self.supported = true;
-            }
-
-            function handleOrientation(event) {
-                absolute = Math.round(event.absolute);
-                alpha = Math.round(event.alpha);
-                beta = Math.round(event.beta);
-                gamma = Math.round(event.gamma);
-                document.getElementById('beta').innerHTML = Math.round(event.beta);
-               document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-               document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-            }
-    }
     
 
     
