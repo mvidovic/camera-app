@@ -16,7 +16,7 @@ const cameraView = document.querySelector("#camera--view"),
             document.getElementById('alpha').innerHTML = Math.round(z);
             console.log("test", y);
 
-            if ( y > 87 && y < 92 ) {
+            while ( y > 87 && y < 92 ) {
                 console.log('uspela si')
                 cameraTrigger.onclick = function() {
                     cameraSensor.width = cameraView.videoWidth;
