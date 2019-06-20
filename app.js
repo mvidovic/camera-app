@@ -27,7 +27,7 @@ const cameraView = document.querySelector("#camera--view"),
                 };
                 
               } else {
-               console.log('nisi')
+                document.getElementById('note').classList.remove('hidden');
               }
             
         }, true);
