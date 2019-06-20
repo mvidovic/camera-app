@@ -18,7 +18,6 @@ const cameraView = document.querySelector("#camera--view"),
 
             if ( y > 87 && y < 92 ) {
                 console.log('uspela si')
-                document.getElementById('note').classList.add('hidden');
                 cameraTrigger.onclick = function() {
                     cameraSensor.width = cameraView.videoWidth;
                     cameraSensor.height = cameraView.videoHeight;
@@ -27,9 +26,7 @@ const cameraView = document.querySelector("#camera--view"),
                     cameraOutput.classList.add("taken");
                 };
                 
-              } else {
-                
-              }
+              } 
             
         }, true);
      
