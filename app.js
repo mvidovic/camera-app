@@ -16,7 +16,7 @@ const cameraView = document.querySelector("#camera--view"),
             document.getElementById('alpha').innerHTML = Math.round(z);
             console.log("test", y);
 
-            if ( y < 92 && y > 87) {
+            if ( y > 87 && y < 92 ) {
                 console.log('uspela si')
                 document.getElementById('note').classList.add('hidden');
                 cameraTrigger.onclick = function() {
