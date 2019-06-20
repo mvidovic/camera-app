@@ -28,7 +28,7 @@ const cameraView = document.querySelector("#camera--view"),
                 };
                 
               } else {
-                document.getElementById('note').classList.remove('hidden');
+                
               }
             
         }, true);
