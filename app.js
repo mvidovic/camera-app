@@ -26,7 +26,7 @@ const cameraView = document.querySelector("#camera--view"),
         cameraOutput.src = cameraSensor.toDataURL("image/webp");
         cameraOutput.classList.add("taken");
       }, 5000);
-    }
+    } else { console.log("greska")}
   },
   true
 );
