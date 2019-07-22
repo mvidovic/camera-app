@@ -7,28 +7,29 @@ const cameraView = document.querySelector("#camera--view"),
     cameraTrigger = document.querySelector("#camera--trigger")
     
        
-        window.addEventListener("deviceorientation", function(e) {
-            var z = e.alpha;
-            var y = e.beta;
-            var x = e.gamma;
-            document.getElementById('beta').innerHTML = Math.round(y);
-            document.getElementById('gamma').innerHTML = Math.round(x);
-            document.getElementById('alpha').innerHTML = Math.round(z);
-            console.log("test", y);
+        window.addEventListener(
+  "deviceorientation",
+  function(e) {
+    var z = e.alpha;
+    var y = e.beta;
+    var x = e.gamma;
+    document.getElementById("beta").innerHTML = Math.round(y);
+    document.getElementById("gamma").innerHTML = Math.round(x);
+    document.getElementById("alpha").innerHTML = Math.round(z);
 
-            if ( y > 87 && y < 92 ) {
-                console.log('uspela si')
-                cameraTrigger.onclick = function() {
-                    cameraSensor.width = cameraView.videoWidth;
-                    cameraSensor.height = cameraView.videoHeight;
-                    cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-                    cameraOutput.src = cameraSensor.toDataURL("image/webp");
-                    cameraOutput.classList.add("taken");
-                };
-                
-              } 
-            
-        }, true);
+    while (y > 87 && y < 92) {
+      console.log("uspela si");
+      this.setTimeout(function() {
+        cameraSensor.width = cameraView.videoWidth;
+        cameraSensor.height = cameraView.videoHeight;
+        cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+        cameraOutput.src = cameraSensor.toDataURL("image/webp");
+        cameraOutput.classList.add("taken");
+      }, 2000);
+    }
+  },
+  true
+);
      
 
     
