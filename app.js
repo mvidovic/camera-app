@@ -17,7 +17,7 @@ const cameraView = document.querySelector("#camera--view"),
     document.getElementById("gamma").innerHTML = Math.round(x);
     document.getElementById("alpha").innerHTML = Math.round(z);
 
-    if (y >= 87) {
+    if (y >= 87  && y <= 92) {
       console.log("uspela si");
       setTimeout(() => {
         cameraSensor.width = cameraView.videoWidth;
