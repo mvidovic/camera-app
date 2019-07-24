@@ -26,8 +26,8 @@ window.addEventListener(
     if (y >= 87 && y <= 92) {
       console.log("uspela si");
       setTimeout(() => {
-        ball.style.top = (maxX * x) / 180 - 10 + "px";
-        ball.style.left = (maxY * y) / 180 - 10 + "px";
+        ball.style.top = (maxY * y) / 180 - 10 + "px";
+        ball.style.left = (maxX * x) / 180 - 10 + "px";
         cameraSensor.width = cameraView.videoWidth;
         cameraSensor.height = cameraView.videoHeight;
         cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
