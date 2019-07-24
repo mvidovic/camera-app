@@ -9,8 +9,8 @@ var ball = document.querySelector(".ball");
 var garden = document.querySelector(".garden");
 var output = document.querySelector(".output");
 
-var maxX = garden.clientWidth - ball.clientWidth;
-var maxY = garden.clientHeight - ball.clientHeight;
+var maxX = garden.clientWidth - ball.clientHeight;
+var maxY = garden.clientHeight - ball.clientWidth;
 
 let y = 0;
 window.addEventListener(
