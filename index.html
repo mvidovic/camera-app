@@ -1,32 +1,38 @@
-<html lang=”en”>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="”en”">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Name of your awesome camera app -->
     <title>Camera App</title>
     <!-- Link to your main style sheet-->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-        
-        <p>Betta1: </p><span id="beta" class="value">null</span>, <br>
-        <p>Gamma: </p><span id="gamma" class="value">null</span>,<br>
-        <p>Alpha: </p><span id="alpha" class="value">null</span>
-    
-       
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <p>Betta:</p>
+    <span id="beta" class="value">null</span>, <br />
+    <p>Gamma:</p>
+    <span id="gamma" class="value">null</span>,<br />
+    <p>Alpha:</p>
+    <span id="alpha" class="value">null</span>
+
+    <div class="garden">
+      <div class="ball"></div>
+    </div>
+
+    <pre class="output"></pre>
     <!-- Camera -->
-        <main id="camera">
-        <!-- Camera sensor -->
-        <canvas id="camera--sensor"></canvas>
-        <!-- Camera view -->
-        <video id="camera--view" autoplay playsinline></video>
-        <!-- Camera output -->
-        <img src="//:0" alt="" id="camera--output">
-        <!-- Camera trigger -->
-        <button id="camera--trigger">Take a picture</button>
+    <main id="camera">
+      <!-- Camera sensor -->
+      <canvas id="camera--sensor"></canvas>
+      <!-- Camera view -->
+      <video id="camera--view" autoplay playsinline></video>
+      <!-- Camera output -->
+      <img src="//:0" alt="" id="camera--output" />
+      <!-- Camera trigger -->
+      <button id="camera--trigger">Take a picture</button>
     </main>
     <!-- Reference to your JavaScript file -->
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
