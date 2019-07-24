@@ -9,8 +9,8 @@ var ball = document.querySelector(".ball");
 var garden = document.querySelector(".garden");
 var output = document.querySelector(".output");
 
-var maxX = garden.clientHeight - ball.clientHeight;
-var maxY = garden.clientWidth - ball.clientWidth;
+var maxX = garden.clientWidth - ball.clientWidth;
+var maxY = garden.clientHeight - ball.clientHeight;
 
 let y = 0;
 window.addEventListener(
@@ -24,7 +24,6 @@ window.addEventListener(
     document.getElementById("alpha").innerHTML = Math.round(z);
 
     if (y >= 87 && y <= 92) {
-      console.log("uspela si");
       setTimeout(() => {
         ball.style.top = (maxY * y) / 180 - 10 + "px";
         ball.style.left = (maxX * x) / 180 - 10 + "px";
