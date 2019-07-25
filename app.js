@@ -22,6 +22,13 @@ function handleOrientation(event) {
 
   output.innerHTML = "beta : " + y + "\n";
   output.innerHTML += "gamma: " + x + "\n";
+  
+  if (x > 90) {
+    x = 90;
+  }
+  if (x < -90) {
+    x = -90;
+  }
 
 }
 
