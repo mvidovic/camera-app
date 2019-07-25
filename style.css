@@ -5,12 +5,8 @@ body {
   height: 100%;
   width: 100%;
 }
-.camera {
-  position: relative;
-  width: 200px;
-  height: 200px;
-}
 
+.camera,
 #camera--view,
 #camera--sensor,
 #camera--output {
@@ -50,13 +46,13 @@ body {
   z-index: 2;
 }
 
-/* .garden {
+.garden {
   position: relative;
   width: 200px;
   height: 200px;
   border: 5px solid #ccc;
   border-radius: 10px;
-} */
+}
 
 .ball {
   position: absolute;
