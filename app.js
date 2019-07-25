@@ -50,7 +50,7 @@ function handleOrientation(event) {
       }, 2000);
     }
   }
-}
+
 
 window.addEventListener('deviceorientation', handleOrientation);
 
