@@ -28,6 +28,7 @@ window.addEventListener(
       setTimeout(() => {
         ball.style.top = (maxY * y) / 180 - 10 + "px";
         ball.style.left = (maxX * x) / 180 - 10 + "px";
+        console.log( ball.style.top, "top");
         cameraSensor.width = cameraView.videoWidth;
         cameraSensor.height = cameraView.videoHeight;
         cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
