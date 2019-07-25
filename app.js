@@ -10,8 +10,8 @@ var ball   = document.querySelector('.ball');
 var garden = document.querySelector('.garden');
 var output = document.querySelector('.output');
 
-var maxY = garden.clientWidth  - ball.clientWidth;
-var maxX = garden.clientHeight - ball.clientHeight;
+var maxX = garden.clientWidth  - ball.clientWidth;
+var maxY = garden.clientHeight - ball.clientHeight;
 
 function handleOrientation(event) {
   var y = event.beta;  // In degree in the range [-180,180]
