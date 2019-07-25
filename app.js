@@ -33,7 +33,7 @@ function handleOrientation(event) {
   x += 90;
   y += 90;
   
-  ball.style.left = (maxX * x) / 180 / 2 - 20 + "px";
+  ball.style.left = (maxX * x - 20) + "px";
   ball.style.top = (maxY * y) / 180 / 2 - 20 + "px";
   console.log(y, "yd");
   console.log(x, "x");
