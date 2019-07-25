@@ -6,7 +6,7 @@ body {
   width: 100%;
 }
 
-.camera,
+#camera,
 #camera--view,
 #camera--sensor,
 #camera--output {
