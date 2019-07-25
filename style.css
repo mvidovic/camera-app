@@ -52,7 +52,8 @@ body {
   height: 100%;
   border: 5px solid #ccc;
   border-radius: 10px;
-  background-color: transparent;
+  background-color: black;
+  z-index: 2;
 }
 
 .ball {
