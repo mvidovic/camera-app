@@ -12,7 +12,7 @@ var output = document.querySelector(".output");
 var maxX = garden.clientWidth - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
 
-let y = 0;
+
 window.addEventListener(
   "deviceorientation",
   function(e) {
@@ -26,8 +26,8 @@ window.addEventListener(
     if (y >= 87 && y <= 92) {
       console.log("uspela si");
       setTimeout(() => {
-        ball.style.top = (maxX * x) / 180 - 10 + "px";
-        ball.style.left = (maxY * y) / 180 - 10 + "px";
+        ball.style.top = (maxY * y) / 180 - 10 + "px";
+        ball.style.left = (maxX * x) / 180 - 10 + "px";
         cameraSensor.width = cameraView.videoWidth;
         cameraSensor.height = cameraView.videoHeight;
         cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
@@ -58,8 +58,6 @@ window.addEventListener("load", cameraStart, false);
 // Access the device camera and stream to cameraView
 
 function handleOrientation(event) {
-  var x = event.beta; // In degree in the range [-180,180]
-  var y = event.gamma; // In degree in the range [-90,90]
 
   output.innerHTML = "beta : " + x + "\n";
   output.innerHTML += "gamma: " + y + "\n";
@@ -69,11 +67,9 @@ function handleOrientation(event) {
 
   // To make computation easier we shift the range of
   // x and y to [0,180]
-  x += 90;
-  y += 90;
+ 
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
 }
 
-window.addEventListener("deviceorientation", handleOrientation);
