@@ -19,8 +19,7 @@ function handleOrientation(event) {
 
     y = Math.round(y);
    x = Math.round(x);
-  console.log(y, 'y');
-  console.log(x, 'x');
+  
   output.innerHTML  = "beta : " + y + "\n";
   output.innerHTML += "gamma: " + x + "\n";
 
@@ -38,7 +37,8 @@ function handleOrientation(event) {
   // It center the positioning point to the center of the ball
   ball.style.left  = (maxX*x/180 - 20) + "px";
   ball.style.top = ((maxY*y/180) / 2 - 20) + "px";
-  
+  console.log(y, 'yd');
+  console.log(x, 'x');
     if (y >= 87 && y <= 92) {
       console.log("uspela si");
       setTimeout(() => {
