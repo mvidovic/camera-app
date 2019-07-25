@@ -42,7 +42,8 @@ function handleOrientation(event) {
   // It center the positioning point to the center of the ball
   ball.style.left = ((maxX * x) / 180 - 20) + "px";
   ball.style.top = (((maxY * y) / 180)/ 2 - 20) + "px";
-  
+  console.log(y, "yDole");
+  console.log(x, "xDole");
   if (y >= 177 && y <= 182) {
     console.log("uspela si");
     setTimeout(() => {
