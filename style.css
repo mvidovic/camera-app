@@ -7,9 +7,8 @@ body {
 }
 .camera {
   position: relative;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  width: 200px;
+  height: 200px;
 }
 
 #camera--view,
