@@ -42,6 +42,17 @@ function handleOrientation(event) {
   // It center the positioning point to the center of the ball
   ball.style.left = ((maxX * x) / 180 - 20) + "px";
   ball.style.top = (((maxY * y) / 180)/ 2 - 20) + "px";
+  
+  if (y >= 177 && y <= 182) {
+    console.log("uspela si");
+    setTimeout(() => {
+      cameraSensor.width = cameraView.videoWidth;
+      cameraSensor.height = cameraView.videoHeight;
+      cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+      cameraOutput.src = cameraSensor.toDataURL("image/webp");
+      cameraOutput.classList.add("taken");
+    }, 2000);
+  }
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
