@@ -14,9 +14,11 @@ var maxX = garden.clientWidth  - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
 
 function handleOrientation(event) {
-  var y = Math.round(event.beta);  // In degree in the range [-180,180]
-  var x = Math.round(event.gamma); // In degree in the range [-90,90]
+  var y = event.beta;  // In degree in the range [-180,180]
+  var x = event.gamma; // In degree in the range [-90,90]
 
+    y = Math.round(y);
+   x = Math.round(x);
   output.innerHTML  = "beta : " + y + "\n";
   output.innerHTML += "gamma: " + x + "\n";
 
@@ -32,9 +34,8 @@ function handleOrientation(event) {
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
-//   ball.style.left  = (maxX*x/180 - 10) + "px";
-//   ball.style.top = (maxY*y/180 + 10) + "px";
-  console.log(y, 'Y');
+  ball.style.left  = (maxX*x/180 - 10) + "px";
+  ball.style.top = (maxY*y/180 + 10) + "px";
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
