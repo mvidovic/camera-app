@@ -19,26 +19,29 @@ function handleOrientation(event) {
 
   y = Math.round(y);
   x = Math.round(x);
-
+  console.log(y, "y");
+  console.log(x, "x");
   output.innerHTML = "beta : " + y + "\n";
   output.innerHTML += "gamma: " + x + "\n";
-  
-  if (y > 90) {
-    y = 90;
+
+  // Because we don't want to have the device upside down
+  // We constrain the x value to the range [-90,90]
+  if (x > 90) {
+    x = 90;
   }
-  if (y < -90) {
-    y = -90;
+  if (x < -90) {
+    x = -90;
   }
-  
+
+  // To make computation easier we shift the range of
+  // x and y to [0,180]
   x += 90;
   y += 90;
-  
-  ball.style.left = (maxX * x - 20) + "px";
-  ball.style.top = (((maxY * y) / 180) / 2 - 20) + "px";
-  console.log(y, "yd");
-  console.log(x, "x");
 
-    
+  // 10 is half the size of the ball
+  // It center the positioning point to the center of the ball
+  ball.style.left = (maxX * x) / 180 - 20 + "px";
+  ball.style.top = (maxY * y) / 180 / 2 - 20 + "px";
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
@@ -67,20 +70,20 @@ window.addEventListener("deviceorientation", handleOrientation);
 //   true
 // );
 
-function cameraStart() {
-  navigator.mediaDevices
-    .getUserMedia(constraints)
-    .then(function(stream) {
-      track = stream.getTracks()[0];
-      cameraView.srcObject = stream;
-    })
-    .catch(function(error) {
-      console.error("Oops. Something is broken.", error);
-    });
-}
-// Take a picture when cameraTrigger is tapped
+// function cameraStart() {
+//   navigator.mediaDevices
+//     .getUserMedia(constraints)
+//     .then(function(stream) {
+//       track = stream.getTracks()[0];
+//       cameraView.srcObject = stream;
+//     })
+//     .catch(function(error) {
+//       console.error("Oops. Something is broken.", error);
+//     });
+// }
+// // Take a picture when cameraTrigger is tapped
 
-// Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);
+// // Start the video stream when the window loads
+// window.addEventListener("load", cameraStart, false);
 
 // // Access the device camera and stream to cameraView
