@@ -25,6 +25,12 @@ window.addEventListener(
 
     if (y >= 87 && y <= 92) {
       setTimeout(() => {
+        if (x > 90) {
+    x = 90;
+  }
+  if (x < -90) {
+    x = -90;
+  }
         ball.style.top = (maxX * x) / 180 - 10 + "px";
         ball.style.left = (maxY * y) / 180 - 10 + "px";
         cameraSensor.width = cameraView.videoWidth;
