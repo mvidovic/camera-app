@@ -23,8 +23,6 @@ function handleOrientation(event) {
   console.log(x, 'x');
   output.innerHTML  = "beta : " + y + "\n";
   output.innerHTML += "gamma: " + x + "\n";
-  
-  console.log(garden, 'garden');
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
