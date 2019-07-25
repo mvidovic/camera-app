@@ -29,6 +29,11 @@ function handleOrientation(event) {
   if (x < -90) {
     x = -90;
   }
+  
+  ball.style.left = (maxX * x) / 180 / 2 - 20 + "px";
+  ball.style.top = (maxY * y) / 180 / 2 - 20 + "px";
+  console.log(y, "yd");
+  console.log(x, "x");
 
 }
 
