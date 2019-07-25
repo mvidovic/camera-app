@@ -7,7 +7,7 @@ const cameraView = document.querySelector("#camera--view"),
   cameraTrigger = document.querySelector("#camera--trigger");
 
 var ball   = document.querySelector('.ball');
-var garden = document.querySelector('.garden');
+var garden = document.querySelector('#camera');
 var output = document.querySelector('.output');
 
 var maxX = garden.clientWidth  - ball.clientWidth;
