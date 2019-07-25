@@ -19,6 +19,7 @@ function handleOrientation(event) {
 
     y = Math.round(y);
    x = Math.round(x);
+  console.log(y, 'y');
   output.innerHTML  = "beta : " + y + "\n";
   output.innerHTML += "gamma: " + x + "\n";
 
@@ -35,7 +36,7 @@ function handleOrientation(event) {
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
   ball.style.left  = (maxX*x/180 - 10) + "px";
-  ball.style.top = (maxY*y/180 + 10) + "px";
+  ball.style.top = ((maxY*y/180) / 2 + 10) + "px";
 }
 
 window.addEventListener('deviceorientation', handleOrientation);
