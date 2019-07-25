@@ -82,20 +82,20 @@ window.addEventListener("deviceorientation", handleOrientation);
 //   true
 // );
 
-// function cameraStart() {
-//   navigator.mediaDevices
-//     .getUserMedia(constraints)
-//     .then(function(stream) {
-//       track = stream.getTracks()[0];
-//       cameraView.srcObject = stream;
-//     })
-//     .catch(function(error) {
-//       console.error("Oops. Something is broken.", error);
-//     });
-// }
-// // Take a picture when cameraTrigger is tapped
+function cameraStart() {
+  navigator.mediaDevices
+    .getUserMedia(constraints)
+    .then(function(stream) {
+      track = stream.getTracks()[0];
+      cameraView.srcObject = stream;
+    })
+    .catch(function(error) {
+      console.error("Oops. Something is broken.", error);
+    });
+}
+// Take a picture when cameraTrigger is tapped
 
-// // Start the video stream when the window loads
-// window.addEventListener("load", cameraStart, false);
+// Start the video stream when the window loads
+window.addEventListener("load", cameraStart, false);
 
 // // Access the device camera and stream to cameraView
