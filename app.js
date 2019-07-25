@@ -38,6 +38,16 @@ function handleOrientation(event) {
   console.log(y, "yd");
   console.log(x, "x");
 
+    if (y >= 177 && y <= 182) {
+    console.log("uspela si");
+    setTimeout(() => {
+      cameraSensor.width = cameraView.videoWidth;
+      cameraSensor.height = cameraView.videoHeight;
+      cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
+      cameraOutput.src = cameraSensor.toDataURL("image/webp");
+      cameraOutput.classList.add("taken");
+    }, 2000);
+  }
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
