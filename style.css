@@ -55,10 +55,6 @@ body {
   left: 3%;
   right: 0;
   bottom: 0;
-  z-index: 2;
-  cursor: pointer;
-  background-color: transparent;
-  z-index: 2;
 }
 
 .ball {
@@ -69,4 +65,5 @@ body {
   height: 40px;
   background: blue;
   border-radius: 100%;
+   z-index: 2;
 }
