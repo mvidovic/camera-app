@@ -45,7 +45,7 @@ function handleOrientation(event) {
   ball.style.top = (((maxY * y) / 180)/ 2 - 20) + "px";
   console.log(y, "yDole");
   console.log(x, "xDole");
-  if (y >= 175 && y <= 185 && x >=80 && x <= 90) {
+  if (y >= 175 && y <= 185 && x >=90 && x <= 100) {
     console.log("uspela si", x, y);
     setTimeout(() => {
       cameraSensor.width = cameraView.videoWidth;
