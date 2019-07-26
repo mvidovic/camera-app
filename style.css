@@ -82,6 +82,7 @@ body {
   -moz-animation: rota2 1000ms linear;
   -o-animation: rota2 1000ms linear;
   -webkit-animation: rota2 1000ms linear;
+	z-index: 3;
 }
 
 @keyframes rota2 {
@@ -116,6 +117,7 @@ body {
   -o-animation: rota 2000ms linear;
   -moz-animation: rota 2000ms linear;
   -webkit-animation: rota 2000ms linear;
+	z-index: 3;
 }
 @keyframes rota {
 	from {transform: rotate(-45deg);}
