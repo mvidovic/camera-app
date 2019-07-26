@@ -6,7 +6,7 @@ body {
   width: 100%;
 }
 
-#camera,
+
 #camera--view,
 #camera--sensor,
 #camera--output {
@@ -46,8 +46,8 @@ body {
   z-index: 2;
 }
 
-.garden {
-  position: absolute;
+.camera {
+  position: relative;
   background-repeat: no-repeat;
   width: 95%;
   height: 95%;
