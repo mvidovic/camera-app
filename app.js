@@ -46,7 +46,7 @@ function handleOrientation(event) {
   console.log(y, "yDole");
   console.log(x, "xDole");
   if (y >= 175 && y <= 185) {
-    console.log("uspela si");
+    console.log("uspela si", x, y);
     setTimeout(() => {
       cameraSensor.width = cameraView.videoWidth;
       cameraSensor.height = cameraView.videoHeight;
