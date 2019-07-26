@@ -42,7 +42,7 @@ function handleOrientation(event) {
 //   ball.style.top = (((maxY * y) / 180)/ 2 - 20) + "px";
   console.log(y, "yDole");
   console.log(x, "xDole");
-  if (y >= 170 && y <= 185) {
+  if (y >= 175 && y <= 185) {
     console.log("uspela si");
     setTimeout(() => {
       cameraSensor.width = cameraView.videoWidth;
@@ -50,7 +50,7 @@ function handleOrientation(event) {
       cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
       cameraOutput.src = cameraSensor.toDataURL("image/webp");
       cameraOutput.classList.add("taken");
-    }, 2000);
+    }, 5000);
   }
 }
 
