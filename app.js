@@ -6,12 +6,12 @@ const cameraView = document.querySelector("#camera--view"),
   cameraSensor = document.querySelector("#camera--sensor"),
   cameraTrigger = document.querySelector("#camera--trigger");
 
-var ball = document.querySelector(".ball");
-var garden = document.querySelector(".garden");
-var output = document.querySelector(".output");
+// var ball = document.querySelector(".ball");
+// var garden = document.querySelector(".garden");
+// var output = document.querySelector(".output");
 
-var maxX = garden.clientWidth - ball.clientWidth;
-var maxY = garden.clientHeight - ball.clientHeight;
+// var maxX = garden.clientWidth - ball.clientWidth;
+// var maxY = garden.clientHeight - ball.clientHeight;
 
 function handleOrientation(event) {
   var y = event.beta; // In degree in the range [-180,180]
@@ -37,9 +37,9 @@ function handleOrientation(event) {
   y += 90;
 
   // 10 is half the size of the ball
-  // It center the positioning point to the center of the ball
-  ball.style.left = ((maxX * x) / 180 - 20) + "px";
-  ball.style.top = (((maxY * y) / 180)/ 2 - 20) + "px";
+//   // It center the positioning point to the center of the ball
+//   ball.style.left = ((maxX * x) / 180 - 20) + "px";
+//   ball.style.top = (((maxY * y) / 180)/ 2 - 20) + "px";
   console.log(y, "yDole");
   console.log(x, "xDole");
   if (y >= 170 && y <= 185) {
