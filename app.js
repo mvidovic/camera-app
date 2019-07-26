@@ -21,6 +21,9 @@ function handleOrientation(event) {
   x = Math.round(x);
   console.log(y, "y");
   console.log(x, "x");
+  
+  document.getElementById("beta").innerHTML = Math.round(y);
+  document.getElementById("gamma").innerHTML = Math.round(x);
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
