@@ -48,6 +48,10 @@ function handleOrientation(event) {
   if (y >= 175 && y <= 185 && x >=90 && x <= 100) {
     console.log("uspela si", x, y);
     setTimeout(() => {
+      var leftDiv = document.getElementById("leftDiv");
+  leftDiv.classList.remove("hidden");
+      var rightDiv = document.getElementById("rightDiv");
+  rightDiv.classList.remove("hidden");
       cameraSensor.width = cameraView.videoWidth;
       cameraSensor.height = cameraView.videoHeight;
       cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
