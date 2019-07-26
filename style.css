@@ -69,15 +69,6 @@ body {
    z-index: 3;
 }
 
-
-.wrapper {
-	margin: 50px;
-	width: 300px;
-	height: 300px;
-	overflow: hidden;
-	position:relative
-}
-
 .right {
 	border: #3f85a3 solid 15px;
 	height: 125px;
