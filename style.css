@@ -60,11 +60,9 @@ body {
 
 .ball {
   position: absolute;
-/*   top: 90px;
-  left: 90px; */
   width: 40px;
   height: 40px;
-  background: blue;
+  background: #f2f2f2;
   border-radius: 100%;
    z-index: 3;
 }
@@ -74,8 +72,8 @@ body {
 	height: 125px;
 	width: 125px;
 	border-radius:120px;
-	    top: 30%;
-    left: 30%;
+	top: 30%;
+	left: 30%;
 	border-top-color: transparent;
 	border-left-color: transparent;
 	position: absolute;
@@ -141,7 +139,7 @@ body {
 }
 
 .middle {
-  color: #0987bc;
+  color: #f2f2f2;
   font-size: 18px;
   display: flex;
   align-items: center;
@@ -156,7 +154,7 @@ body {
 	z-index: 4;
 }
 
-.popover {
+/* .popover {
 	background: white;
 	width: 80px;
 	height: 162px;
@@ -195,3 +193,4 @@ body {
 	100% {opacity:0;}
 }
 
+ */
