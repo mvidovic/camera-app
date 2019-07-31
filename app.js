@@ -13,6 +13,9 @@ var output = document.querySelector(".output");
 var maxX = garden.clientWidth - ball.clientWidth;
 var maxY = garden.clientHeight - ball.clientHeight;
 
+let leftDiv = document.getElementById("leftDiv");
+let rightDiv = document.getElementById("rightDiv");
+
 function handleOrientation(event) {
   var y = event.beta; // In degree in the range [-180,180]
   var x = event.gamma; // In degree in the range [-90,90]
@@ -46,10 +49,8 @@ function handleOrientation(event) {
   console.log(y, "yDole");
   console.log(x, "xDole");
   if (y >= 175 && y <= 185 && x >=90 && x <= 100) {
-    let leftDiv = document.getElementById("leftDiv");
-  leftDiv.classList.remove("hidden");
-      let rightDiv = document.getElementById("rightDiv");
-  rightDiv.classList.add("hidden");
+    leftDiv.classList.remove("hidden");
+    rightDiv.classList.add("hidden");
     setTimeout(() => {
       cameraSensor.width = cameraView.videoWidth;
       cameraSensor.height = cameraView.videoHeight;
