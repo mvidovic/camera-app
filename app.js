@@ -49,7 +49,7 @@ function handleOrientation(event) {
     let leftDiv = document.getElementById("leftDiv");
   leftDiv.classList.remove("hidden");
       let rightDiv = document.getElementById("rightDiv");
-  rightDiv.classList.remove("hidden");
+  rightDiv.classList.add("hidden");
     setTimeout(() => {
       cameraSensor.width = cameraView.videoWidth;
       cameraSensor.height = cameraView.videoHeight;
