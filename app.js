@@ -46,8 +46,6 @@ function handleOrientation(event) {
 //   // It center the positioning point to the center of the ball
   ball.style.left = ((maxX * x) / 180 - 20) + "px";
   ball.style.top = (((maxY * y) / 180)/ 2 - 20) + "px";
-  console.log(y, "yDole");
-  console.log(x, "xDole");
   if (y >= 175 && y <= 185 && x >=90 && x <= 100) {
     leftDiv.classList.remove("d-none");
     rightDiv.classList.remove("d-none");
