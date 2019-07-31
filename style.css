@@ -6,6 +6,9 @@ body {
   width: 100%;
 }
 
+#exp{
+z-index: 5;
+}
 
 #camera--view,
 #camera--sensor,
