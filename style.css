@@ -68,7 +68,7 @@ body {
 }
 
 .right {
-	border: #3f85a3 solid 15px;
+	border: #f2f2f2 solid 15px;
 	height: 125px;
 	width: 125px;
 	border-radius:120px;
@@ -105,7 +105,7 @@ body {
 }
 
 .left {
-	border: #3f85a3 solid 15px;
+	border: #f2f2f2 solid 15px;
 	height: 125px;
 	width: 125px;
 	    top: 30%;
