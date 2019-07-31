@@ -50,7 +50,7 @@ function handleOrientation(event) {
   console.log(x, "xDole");
   if (y >= 175 && y <= 185 && x >=90 && x <= 100) {
     leftDiv.classList.remove("d-none");
-    rightDiv.classList.add("d-none");
+    rightDiv.classList.remove("d-none");
     setTimeout(() => {
       cameraSensor.width = cameraView.videoWidth;
       cameraSensor.height = cameraView.videoHeight;
